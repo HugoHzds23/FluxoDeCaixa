@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-body {
+.body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    color: #023047
+    color: #023047;
 }
 
 .page {
@@ -15,7 +15,7 @@ body {
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background-color: #480ca8;
+    background-color: antiquewhite;
 }
 
 .formLogin {
@@ -59,7 +59,7 @@ body {
 
 
 .formLogin input:focus {
-    border: 1px solid #f72585;
+    border: 1px solid #ffffff;
 }
 
 .formLogin label {
@@ -80,7 +80,7 @@ body {
 }
 
 .btn {
-    background-color: #f72585;
+    background-color: #797979;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
@@ -93,6 +93,6 @@ body {
 
 .btn:hover {
     transform: scale(1.05);
-    background-color: #ff0676;
+    background-color: #ffffff;
 
 }

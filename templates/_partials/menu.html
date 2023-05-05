@@ -1,0 +1,24 @@
+{% load static %}
+
+<div class="container-fluid" >
+    <nav class="dp-menu">
+        <div class="text-center" >
+            <ul>
+                <li><a href="{% url 'controlecaixa' %}">Caixa</a></li>
+                <li><a href="#">Pedidos</a>
+                    <ul>
+                        <li><a href="{% url 'novo_pedido' %}">Pedidos</a></li>
+                        <li><a href="#">Despesas</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Cadastro</a>
+                    <ul>
+                        <li><a href="#">Motoboy</a></li>
+                        <li><a href="{% url 'cadastro' %}">Funcionarios</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

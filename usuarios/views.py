@@ -22,7 +22,7 @@ def login(request):
         if usuario is not None:
             auth.login(request, usuario)
             messages.success(request, f"{nome} logado com sucesso")
-            return redirect ('index')
+            return redirect ('controlecaixa')
         else:
             messages.error(request, "Erro ao efetuar o Login")
             return redirect ('login')
@@ -65,6 +65,5 @@ def cadastro(request):
 
 
     return render(request, 'usuarios/cadastro.html', {'form': form})
-
 
 

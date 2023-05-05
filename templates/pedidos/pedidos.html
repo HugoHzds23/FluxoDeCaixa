@@ -1,0 +1,20 @@
+{% extends '_partials/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include '_partials/menu.html' %}
+
+<section class="container mt-2">
+    <h1 class="text-center">Novo Pedido</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+            <label {{field.id_for_label}}>{{field.label}}</label>
+            {{field}}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Adicionar Pedido" class="btn btn-outline-success">
+    </form>
+</section>
+{% endblock %} 
