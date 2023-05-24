@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'usuarios.apps.UsuariosConfig',
     'controlecaixa.apps.ControlecaixaConfig',
     'pedidos.apps.PedidosConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

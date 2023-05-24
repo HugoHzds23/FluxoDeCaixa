@@ -1,0 +1,40 @@
+{% extends '_partials/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include '_partials/menu.html' %}
+
+<div class="container">
+   <a href="{% url 'novocaixa' %}" class="btn btn-success" role="button" aria-pressed="true" >Novo Caixa</a>
+   <a href="#" class="btn btn-danger" role="button" aria-pressed="true" >Fechar Caixa</a>
+
+
+    <div class="page">
+        {% for menssage in messages %}
+    <div class="container alert alert-info" role="alert">
+        <p id="messages">{{menssage}}</p>
+    </div>
+        {% endfor %}
+
+   <table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">ID_CAIXA</th>
+        <th scope="col">HORA DE ABERTURA</th>
+        <th scope="col">HORA DE FECHAMENTO</th>
+    </tr>
+    </thead>
+    {% for novocaixa in novoscaixas %}
+    <thead class="thead-white">
+    <tr>
+        <th scope="col">{{ novocaixa.id_caixa }}</th>
+        <th scope="col">{{ novocaixa.hora_aberto }}</th>
+        <th scope="col">{{ novocaixa.hora_fechado }}</th>
+    </tr>
+    {% endfor %}
+    </thead>
+  
+
+
+</div>
+{% endblock %}

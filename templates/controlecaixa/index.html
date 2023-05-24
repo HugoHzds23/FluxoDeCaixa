@@ -4,23 +4,49 @@
 {% block content %}
 {% include '_partials/menu.html' %}
 
-<div class="container">
-    <input type="submit" value="Abrir Caixa" class="btn btn-success">
+{% csrf_token %}
 
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">ORIGEM</th>
-            <th scope="col">ID IFOOD</th>
-            <th scope="col">CLIENTE</th>
-            <th scope="col">DINHEIRO</th>
-            <th scope="col">CREDITO</th>
-            <th scope="col">DEBITO</th>
-            <th scope="col">PIX</th>
-            <th scope="col">EDITAR</th>
-        </tr>
-        </thead>
-    <tbody>
+<div class="container-fluid">
+    {% for menssage in messages %}
+<div class="alert alert-info" role="alert">
+    <p id="messages">{{menssage}}</p>
 </div>
+    {% endfor %}
+
+<div class="container-fluid">
+   <a href="{% url 'novocaixa' %}" class="btn btn-success" role="button" aria-pressed="true" >Novo Caixa</a>
+   <a href="{% url 'fecharcaixa' %}" class="btn btn-danger" role="button" aria-pressed="true" >Fechar Caixa</a>
+
+   <table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">ORIGEM</th>
+        <th scope="col">ID_IFOOD</th>
+        <th scope="col">NOME DO CLIENTE</th>
+        <th scope="col">DINHEIRO</th>
+        <th scope="col">CREDITO</th>
+        <th scope="col">DEBITO</th>
+        <th scope="col">PIX</th>
+        <th scope="col">STATUS</th>
+        <th scope="col">EDITAR</th>
+    </tr>
+    </thead>
+    {% for novo_pedido in listapedidos %}
+    <thead class="thead-white">
+    <tr>
+        <th scope="col">{{ novo_pedido.id }}</th>
+        <th scope="col">{{ novo_pedido.origempedido }}</th>
+        <th scope="col">{{ novo_pedido.id_ifood }}</th>
+        <th scope="col">{{ novo_pedido.cliente }}</th>
+        <th scope="col">{{ novo_pedido.dinheiro }}</th>
+        <th scope="col">{{ novo_pedido.cartao_credito }}</th>
+        <th scope="col">{{ novo_pedido.cartao_debito }}</th>
+        <th scope="col">{{ novo_pedido.pix }}</th>
+        <th scope="col">------------</th>
+        <th scope="col">------------</th>
+    </tr>
+    {% endfor %}
+    </thead>
+</div> 
 {% endblock %}
