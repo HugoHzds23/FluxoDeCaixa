@@ -4,6 +4,27 @@
 {% block content %}
 {% include '_partials/menu.html' %}
 
+<header class='container'>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                PEDIDOS DO IFOOD
+            </div>
+            <div class="col-md-auto">
+                PEDIDOS DO BALCAO
+            </div>
+            <div class="col-md-auto">
+                PEDIDOS DO WHATSSAP
+            </div>
+            <div class="col-md-auto">
+                PEDIDOS DO TELEFONE
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
 <div class="container-fluid">
     {% for menssage in messages %}
 <div class="alert alert-info" role="alert">
@@ -25,7 +46,7 @@
 
 
 <div class="container-fluid text-center">
-   <table class="table">
+    <table class="table">
     <thead class="thead-dark">
     <tr>
         <th scope="col">ID</th>
@@ -41,44 +62,63 @@
     </tr>
     </thead>
     {% for novo_pedido in pedido %}
-    <thead class="thead-white">
-    <tr>
-        <th scope="col">{{ novo_pedido.id }}</th>
-        <th scope="col">{{ novo_pedido.origempedido }}</th>
-        {% if novo_pedido.id_ifood is None %}
-        <th scope="col">------</th>  
-        {% else %}   
-        <th scope="col">{{ novo_pedido.id_ifood }}</th>
-        {% endif %}
-        <th scope="col">{{ novo_pedido.cliente }}</th>
+        <thead class="thead-white">
+        <tr>
+            <th scope="col">{{ novo_pedido.id }}</th>
+            <th scope="col">{{ novo_pedido.origempedido }}</th>
+            {% if novo_pedido.id_ifood is None %}
+            <th scope="col">------</th>  
+            {% else %}   
+            <th scope="col">{{ novo_pedido.id_ifood }}</th>
+            {% endif %}
+            <th scope="col">{{ novo_pedido.cliente }}</th>
 
-        {% if novo_pedido.dinheiro is None %}
-        <th scope="col">R$: 0,00</th>  
-        {% else %}   
-        <th scope="col">R$: {{ novo_pedido.dinheiro }}</th>
-        {% endif %}
-        {% if novo_pedido.cartao_credito is None %}
-        <th scope="col">R$: 0,00</th>  
-        {% else %}   
-        <th scope="col">R$: {{ novo_pedido.cartao_credito }}</th>
-        {% endif %}
-        {% if novo_pedido.cartao_debito is None %}
-        <th scope="col">R$: 0,00</th>  
-        {% else %}   
-        <th scope="col">R$: {{ novo_pedido.cartao_debito }}</th>
-        {% endif %}
-        {% if novo_pedido.pix is None %}
-        <th scope="col">R$: 0,00</th>  
-        {% else %}   
-        <th scope="col">R$: {{ novo_pedido.pix }}</th>
-        {% endif %}
-        <th scope="col"></th>
-        <th scope="col">
-            <button href="#" class="btn btn-primary btn-sm"><a>Editar</a></button>
-            <button href="#" class="btn btn-secondaty btn-sm"><a>Excluir</a></button>
-        </th>
-    </tr>
-    {% endfor %}
-    </thead>
+            {% if novo_pedido.dinheiro is None %}
+            <th scope="col">R$: 0,00</th>  
+            {% else %}   
+            <th scope="col">R$: {{ novo_pedido.dinheiro }}</th>
+            {% endif %}
+            {% if novo_pedido.cartao_credito is None %}
+            <th scope="col">R$: 0,00</th>  
+            {% else %}   
+            <th scope="col">R$: {{ novo_pedido.cartao_credito }}</th>
+            {% endif %}
+            {% if novo_pedido.cartao_debito is None %}
+            <th scope="col">R$: 0,00</th>  
+            {% else %}   
+            <th scope="col">R$: {{ novo_pedido.cartao_debito }}</th>
+            {% endif %}
+            {% if novo_pedido.pix is None %}
+            <th scope="col">R$: 0,00</th>  
+            {% else %}   
+            <th scope="col">R$: {{ novo_pedido.pix }}</th>
+            {% endif %}
+            <th scope="col"></th>
+            <th scope="col">
+                <a href="{% url 'editarpedido' novo_pedido.id %}" ><button class="btn btn-primary btn-sm">Editar</button></a>
+                <a href="{% url 'deletarpedido' novo_pedido.id %}" ><button class="btn btn-secondaty btn-sm">Deletar</button></a>
+            </th>
+            {% endfor %}
+        </tr>
+
+        </thead>
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">----</th>
+                <th scope="col">----</th>
+                <th scope="col">----</th>
+                <th scope="col">----</th>
+                <th scope="col">DINHEIRO</th>
+                <th scope="col">CREDITO</th>
+                <th scope="col">DEBITO</th>
+                <th scope="col">PIX</th>
+                <th scope="col">----</th>
+                <th scope="col">----</th>
+            </tr>
+        </thead>
+    </table>
+
+
+
 </div> 
 {% endblock %}

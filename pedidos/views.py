@@ -26,3 +26,20 @@ def listadepedidos (request):
     print (listapedidos)
     pedido = {'pedido' : listapedidos}
     return render (request, 'pedidos/listapedidos.html', pedido)
+
+def editarpedidos(request,pk):
+    pedido = models.novo_pedido.objects.get(pk=pk)
+    form = novo_pedidoForms(request.POST or None, instance=pedido)
+
+    if form.is_valid():
+        contexto = {'form': form} 
+        ped = form.save(commit=False)  
+        ped.save()
+        return redirect ('listadepedidos')
+    contexto = {'form': form} 
+    return render(request, 'pedidos/pedidos.html', contexto)
+
+def deletarpedido (request, pk):
+    pedido = models.novo_pedido.objects.get(pk=pk)
+    pedido.delete()
+    return redirect('listadepedidos')

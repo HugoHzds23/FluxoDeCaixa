@@ -4,10 +4,23 @@
 {% block content %}
 {% include '_partials/menu.html' %}
 
-<div class="container">
-   <a href="{% url 'novocaixa' %}" class="btn btn-success" role="button" aria-pressed="true" >Novo Caixa</a>
-   <a href="#" class="btn btn-danger" role="button" aria-pressed="true" >Fechar Caixa</a>
+<header>
+    <div>
+        NUMERO DE PEDIDOS DO IFOOD
+    </div>
+    <div>
+        NUMERO DE PEDIDOS DO BALCAO
+    </div>
+    <div>
+        NUMERO DE PEDIDOS DO WHATSSAP
+    </div>
+    <div>
+        NUMERO DE PEDIDOS DO TELEFONE
+    </div>
+</header>
 
+
+<div class="container">
 
     <div class="page">
         {% for menssage in messages %}
