@@ -1,0 +1,21 @@
+{% extends '_partials/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+{% include '_partials/menu.html' %}
+
+<section class="container contcol-8">
+    <h1 class="text-center">Novo Pedido</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+            <label {{field.id_for_label}}>{{field.label}}</label>
+            {{field|add_class:'form-control'}}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Salvar Despesa" class="btn btn-outline-danger">
+    </form>
+</section>
+{% endblock %} 

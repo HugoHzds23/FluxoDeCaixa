@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import novocaixa
+from .models import Caixa
 
-admin.site.register(novocaixa)
+admin.site.register(Caixa)
 
 # Register your models here.

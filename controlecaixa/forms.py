@@ -1,7 +1,7 @@
 from django import forms
-from controlecaixa.models import novocaixa
+from controlecaixa.models import Caixa
 
-class novocaixaForms(forms.ModelForm):
+class CaixaForms(forms.ModelForm):
     class Meta:
-        model = novocaixa
+        model = Caixa
         fields = '__all__'
